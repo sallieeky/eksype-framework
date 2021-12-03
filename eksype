@@ -1,0 +1,106 @@
+#!/usr/bin/python
+import pymysql
+import sys
+import migration
+import model
+import seeder
+import config
+import env
+import os
+
+command = sys.argv
+
+# connect to database
+db, cursor = config.connection.connect()
+# end connect to database
+
+
+def get_all_table():
+    sql = f"SELECT table_name FROM information_schema.tables WHERE table_schema = '{env.db_name}'"
+    cursor.execute(sql)
+    fetch = cursor.fetchall()
+    result = []
+    for i in fetch:
+        result.append(i[0])
+    return result
+
+
+if(command[1] == "run"):
+    print("Executing application")
+    os.system("py app.py")
+
+# drop table
+elif(command[1] == "drop"):
+    sql = migration.drop(command[2])
+    cursor.execute(sql)
+    db.commit()
+    print(f"Table {command[2].lower()} has been dropped")
+
+elif(command[1] == "drop:all"):
+    table = get_all_table()
+    for i in table:
+        sql = "DROP TABLE " + i
+        cursor.execute(sql)
+        db.commit()
+    print(f"All table has been dropped")
+# end drop table
+
+# create table
+elif(command[1] == "migrate"):
+    sql = migration.migrate(command[2])
+    cursor.execute(sql)
+    db.commit()
+    print(f"Table {command[2].lower()} has been migrated")
+
+
+elif(command[1] == "migrate:all"):
+    for i in range(len(migration.migrate_all())):
+        sql = migration.migrate_all()[i]
+        cursor.execute(sql)
+        db.commit()
+    print(f"All table has been migrated")
+# end create table
+
+# fresh database drop and migrate table
+elif(command[1] == "migrate:fresh"):
+    table = get_all_table()
+    for i in table:
+        sql = "DROP TABLE " + i
+        cursor.execute(sql)
+        db.commit()
+    print(f"All table has been dropped")
+    for i in range(len(migration.migrate_all())):
+        sql = migration.migrate_all()[i]
+        cursor.execute(sql)
+        db.commit()
+    print(f"All table has been migrated")
+# end fresh database
+
+# make new model
+elif(command[1] == "make:model"):
+    model.make_model(command[2])
+    print(f"Model {command[2].lower()} has been make")
+# end make new model
+
+# make new migration
+elif(command[1] == "make:migration"):
+    migration.make_migration(command[2])
+    print(f"Migration {command[2].lower()} has been make")
+# end make new migration
+
+# make new seeder
+elif(command[1] == "make:seeder"):
+    seeder.make_seeder(command[2])
+    print(f"Seeder {command[2].lower()} has been make")
+# end make new seeder
+
+elif(command[1] == "seed:all"):
+    for i in range(len(seeder.seed_all())):
+        sql = seeder.seed_all()[i]
+        cursor.execute(sql)
+        db.commit()
+    print(f"All table has been seeded")
+
+
+else:
+    print("Command not found")

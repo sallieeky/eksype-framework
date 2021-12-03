@@ -1,0 +1,9 @@
+Command eksype exists
+drop table_name
+drop:all
+
+migrate table_name
+migrate:all
+migrate:fresh
+
+make:migration migration_name
