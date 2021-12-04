@@ -3,10 +3,9 @@ class ClassName:
         pass
 
     def seed():
-        return """
-            INSERT INTO table_name
-            (column_name)
-            VALUES
-            (value)
-            ;
-        """
+        # Insert seed data here and remove pass
+        # Example:
+        # data = ModelClass().create({'field': 'value'})
+        # return data
+
+        pass

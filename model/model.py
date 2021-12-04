@@ -33,3 +33,11 @@ class Model:
         cursor.execute(
             f"SELECT * FROM {self.table_name} WHERE {column} {operator} '{value}' LIMIT 1")
         return cursor.fetchone()
+
+    def create(self, data):
+        keys = ', '.join(data.keys())
+        values = ', '.join(['%s'] * len(data))
+        cursor.execute(
+            f"INSERT INTO {self.table_name} ({keys}) VALUES ({values})", tuple(data.values()))
+        db.commit()
+        return True

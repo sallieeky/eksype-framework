@@ -95,12 +95,8 @@ elif(command[1] == "make:seeder"):
 # end make new seeder
 
 elif(command[1] == "seed:all"):
-    for i in range(len(seeder.seed_all())):
-        sql = seeder.seed_all()[i]
-        cursor.execute(sql)
-        db.commit()
-    print(f"All table has been seeded")
-
+    seeder.seed_all()
+    print(f"All seeder has been seeded")
 
 else:
     print("Command not found")

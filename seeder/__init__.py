@@ -7,10 +7,9 @@ module_list = [
 
 
 def seed_all():
-    module_return = []
     for module in module_list:
-        module_return.append(module.seed())
-    return module_return
+        module.seed()
+    return True
 
 
 def make_seeder(file_name):
@@ -20,7 +19,5 @@ def make_seeder(file_name):
                 if 'class ClassName:' in line:
                     line = line.replace('class ClassName:',
                                         f'class {file_name.capitalize()}:')
-                if 'INSERT INTO table_name' in line:
-                    line = line.replace(
-                        'INSERT INTO table_name', f'INSERT INTO {file_name.lower()}')
+
                 writer.write(line)
