@@ -73,9 +73,6 @@ elif(command[1] == "migrate:fresh"):
         cursor.execute(sql)
         db.commit()
     print(f"All table has been migrated")
-    # if(command[2] == "-s"):
-    #     seeder.seed_all()
-    #     print(f"All table has been seeded")
 # end fresh database
 
 # make new model
@@ -109,5 +106,11 @@ elif(command[1] == "seed:all"):
     seeder.seed_all()
     print(f"All seeder has been seeded")
 
+
 else:
     print("Command not found")
+
+
+if("-s" in command):
+    seeder.seed_all()
+    print(f"All seeder has been seeded")

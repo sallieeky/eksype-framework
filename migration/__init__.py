@@ -1,14 +1,12 @@
-from migration.mahasiswa import Mahasiswa
 from migration.migrations import Migrations
 
 module_list = [
     Migrations,
-    Mahasiswa
 ]
 
 
 def migrate(table_name):
-    return eval(table_name.capitalize()).create()
+    return eval(table_name.capitalize())().create()
 
 
 def migrate_all():

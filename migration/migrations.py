@@ -7,6 +7,7 @@ class Migrations(Schema):
 
     def schema(self):
         self.query += Schema().id()
+        self.query += Schema().varchar("name")
         self.query += Schema().timestamps()
         return self.query
 
