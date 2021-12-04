@@ -6,4 +6,5 @@ migrate table_name
 migrate:all
 migrate:fresh
 
-make:migration migration_name
+make:migration migrationname
+make:seeder seedername

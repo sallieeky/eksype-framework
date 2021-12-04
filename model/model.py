@@ -41,3 +41,16 @@ class Model:
             f"INSERT INTO {self.table_name} ({keys}) VALUES ({values})", tuple(data.values()))
         db.commit()
         return True
+
+    def update(self, id, data):
+        cursor.execute(
+            'UPDATE {table} SET {} WHERE id={id}'.format(
+                ', '.join('{}=%s'.format(k) for k in data), table=self.table_name, id=id), tuple(data.values())
+        )
+        db.commit()
+        return True
+
+    def delete(self, id):
+        cursor.execute(f"DELETE FROM {self.table_name} WHERE id = {id}")
+        db.commit()
+        return True

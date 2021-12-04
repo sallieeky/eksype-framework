@@ -5,7 +5,14 @@ class ClassName:
     def seed():
         # Insert seed data here and remove pass
         # Example:
-        # data = ModelClass().create({'field': 'value'})
-        # return data
+        #
+        #
+        # ModelClass().create({
+        # 'field': 'value',
+        # 'field': 'value',
+        # })
+        #
+        #
+        #
 
         pass

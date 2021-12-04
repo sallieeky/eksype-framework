@@ -6,19 +6,23 @@ from PyQt5.QtWidgets import *
 from model.migrations import Migrations
 
 
-
 def window():
     app = QApplication(sys.argv)
     w = QWidget()
     b = QLabel(w)
 
-    data = Migrations().create({
-        "name": "test",
-        "alamat": "awda"
+    # data = Migrations().create({
+    #     "name": "test",
+    #     "alamat": "awda"
+    # })
+
+    # print(data)
+
+    data2 = Migrations().update(4, {
+        "alamat": "awkoakwoakoka",
     })
 
-    print(data)
-
+    print(data2)
 
     w.setGeometry(100, 100, 500, 200)
     b.move(50, 20)

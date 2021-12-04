@@ -6,10 +6,17 @@ class MigrationsSeeder:
         pass
 
     def seed():
-
-        data = Migrations().create({
+        Migrations().create({
             "name": "migration_1",
             "alamat": "dwad"
         })
+        Migrations().create({
+            "name": "migration_2",
+            "alamat": "jl. Ahmad Yani"
+        })
+        Migrations().create({
+            "name": "migration_3",
+            "alamat": "Jalan Jend Soedirman"
+        })
 
-        return data
+        return True
