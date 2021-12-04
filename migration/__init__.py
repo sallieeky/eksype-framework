@@ -1,7 +1,9 @@
 from migration.migrations import Migrations
+from migration.user import User
 
 module_list = [
     Migrations,
+    User
 ]
 
 

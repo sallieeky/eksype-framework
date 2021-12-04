@@ -4,6 +4,7 @@ from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
 
 from model.migrations import Migrations
+from model.user import User
 
 
 def window():
@@ -11,7 +12,8 @@ def window():
     w = QWidget()
     b = QLabel(w)
 
-    b.setText("Hello World!")
+    user = User().authenticate('admin', 'admin')
+
     w.setGeometry(100, 100, 500, 200)
     b.move(50, 20)
     w.setWindowTitle("PyQt5")

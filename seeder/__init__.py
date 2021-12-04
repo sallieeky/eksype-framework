@@ -1,8 +1,10 @@
 from seeder.migrationsseeder import MigrationsSeeder
+from seeder.userseeder import Userseeder
 
 
 module_list = [
     MigrationsSeeder,
+    Userseeder
 ]
 
 

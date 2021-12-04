@@ -1,6 +1,7 @@
+import pymysql
 import config
 
-db, cursor = config.connect()
+db, cursor = config.connect(pymysql.cursors.DictCursor)
 
 
 class Model:

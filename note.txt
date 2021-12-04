@@ -1,3 +1,9 @@
+Package installed
+pymysql
+PyQt5
+bcrypt
+
+
 Command eksype exists
 drop table_name
 drop:all
