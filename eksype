@@ -1,5 +1,4 @@
 #!/usr/bin/python
-import pymysql
 import sys
 import migration
 import model
@@ -74,6 +73,9 @@ elif(command[1] == "migrate:fresh"):
         cursor.execute(sql)
         db.commit()
     print(f"All table has been migrated")
+    # if(command[2] == "-s"):
+    #     seeder.seed_all()
+    #     print(f"All table has been seeded")
 # end fresh database
 
 # make new model
@@ -93,6 +95,15 @@ elif(command[1] == "make:seeder"):
     seeder.make_seeder(command[2])
     print(f"Seeder {command[2].lower()} has been make")
 # end make new seeder
+
+elif(command[1] == "make:msm"):
+    model.make_model(command[2])
+    print(f"Model {command[2].lower()} has been make")
+    migration.make_migration(command[2])
+    print(f"Migration {command[2].lower()} has been make")
+    seeder.make_seeder(command[2])
+    print(f"Seeder {command[2].lower()} has been make")
+
 
 elif(command[1] == "seed:all"):
     seeder.seed_all()

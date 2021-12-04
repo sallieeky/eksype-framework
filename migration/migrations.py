@@ -1,17 +1,21 @@
-class Migrations:
-    def __init__(self):
-        pass
+from migration.schema import Schema
 
-    def create():
-        return """
+
+class Migrations(Schema):
+    def __init__(self):
+        Schema.__init__(self)
+
+    def schema(self):
+        self.query += Schema().id()
+        self.query += Schema().timestamps()
+        return self.query
+
+    def create(self):
+        return f"""
         CREATE TABLE IF NOT EXISTS 
         migrations 
         (
-            id INTEGER PRIMARY KEY AUTO_INCREMENT,
-            name VARCHAR(255) NOT NULL,
-            alamat VARCHAR(255) NOT NULL,
-            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-            updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+            {self.schema()}
         );
         """
 

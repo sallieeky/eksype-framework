@@ -1,7 +1,7 @@
 from migration.schema import Schema
 
 
-class ClassName(Schema):
+class Mahasiswa(Schema):
     def __init__(self):
         Schema.__init__(self)
 
@@ -13,7 +13,7 @@ class ClassName(Schema):
     def create(self):
         return f"""
         CREATE TABLE IF NOT EXISTS 
-        table_name 
+        mahasiswa 
         (
             {self.schema()}
         );
@@ -21,5 +21,5 @@ class ClassName(Schema):
 
     def drop():
         return """
-        DROP TABLE IF EXISTS table_name;
+        DROP TABLE IF EXISTS mahasiswa;
         """

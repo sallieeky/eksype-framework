@@ -2,7 +2,7 @@ from seeder.migrationsseeder import MigrationsSeeder
 
 
 module_list = [
-    MigrationsSeeder
+    MigrationsSeeder,
 ]
 
 
@@ -13,6 +13,9 @@ def seed_all():
 
 
 def make_seeder(file_name):
+    if "seeder" not in file_name.lower():
+        file_name = file_name + "seeder"
+
     with open('default/seeder.py', 'r') as reader:
         with open(f'seeder/{file_name.lower()}.py', 'w') as writer:
             for line in reader:

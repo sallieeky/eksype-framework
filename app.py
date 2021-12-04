@@ -11,19 +11,7 @@ def window():
     w = QWidget()
     b = QLabel(w)
 
-    # data = Migrations().create({
-    #     "name": "test",
-    #     "alamat": "awda"
-    # })
-
-    # print(data)
-
-    data2 = Migrations().update(4, {
-        "alamat": "awkoakwoakoka",
-    })
-
-    print(data2)
-
+    b.setText("Hello World!")
     w.setGeometry(100, 100, 500, 200)
     b.move(50, 20)
     w.setWindowTitle("PyQt5")
