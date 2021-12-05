@@ -1,8 +1,6 @@
 from PyQt5.QtCore import *
 from PyQt5.QtWidgets import QSizePolicy, QWidget, QApplication, QPushButton, QLabel, QLineEdit, QGridLayout, QMessageBox, QMainWindow
 
-from helper.auth import Auth
-
 
 class Welcome(QWidget):
     def __init__(self):

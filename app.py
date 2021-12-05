@@ -1,7 +1,7 @@
 from PyQt5.QtWidgets import QWidget, QApplication, QPushButton, QLabel, QLineEdit, QGridLayout, QMessageBox, QMainWindow
 import sys
 
-from pages.welcome import Welcome
+from page.welcome import Welcome
 
 
 class App():

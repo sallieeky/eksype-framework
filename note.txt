@@ -17,6 +17,7 @@ seed:all
 make:model modelname
 make:migration migrationname
 make:seeder seedername
+make:page pagename
 make:msm tablename
 
 db

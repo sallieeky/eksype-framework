@@ -2,6 +2,7 @@
 import sys
 import migration
 import model
+import page
 import seeder
 import config
 import env
@@ -96,6 +97,13 @@ elif(command[1] == "make:seeder"):
     print(f"Creating seeder {command[2].lower()}")
     seeder.make_seeder(command[2])
     print(f"Seeder {command[2].lower()} has been make")
+# end make new seeder
+
+# make new seeder
+elif(command[1] == "make:page"):
+    print(f"Creating page {command[2].lower()}")
+    page.make_page(command[2])
+    print(f"Page {command[2].lower()} has been make")
 # end make new seeder
 
 elif(command[1] == "make:msm"):
