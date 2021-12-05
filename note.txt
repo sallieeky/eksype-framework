@@ -3,7 +3,6 @@ pymysql
 PyQt5
 bcrypt
 
-
 Command eksype exists
 drop table_name
 drop:all
@@ -19,3 +18,5 @@ make:model modelname
 make:migration migrationname
 make:seeder seedername
 make:msm tablename
+
+db:table nama_table

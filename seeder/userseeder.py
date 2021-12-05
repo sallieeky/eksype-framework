@@ -11,3 +11,8 @@ class Userseeder:
             'username': 'admin',
             'password': bcrypt.hashpw(b"admin", bcrypt.gensalt()),
         })
+
+        User().create({
+            'username': 'eky',
+            'password': bcrypt.hashpw(b"eksype", bcrypt.gensalt()),
+        })

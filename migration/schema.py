@@ -2,8 +2,8 @@ class Schema:
     def __init__(self):
         self.query = ""
 
-    def id(self):
-        return "id INTEGER PRIMARY KEY AUTO_INCREMENT,"
+    def id(self, field='id'):
+        return f"{field} INTEGER PRIMARY KEY AUTO_INCREMENT,"
 
     def timestamps(self):
         return "created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP, updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"

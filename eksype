@@ -1,11 +1,13 @@
 #!/usr/bin/python
 import sys
+from helper.db import DB
 import migration
 import model
 import seeder
 import config
 import env
 import os
+from helper import tableit
 
 command = sys.argv
 
@@ -30,6 +32,7 @@ if(command[1] == "run"):
 
 # drop table
 elif(command[1] == "drop"):
+    print(f"Dropping table {command[2].lower()}")
     sql = migration.drop(command[2])
     cursor.execute(sql)
     db.commit()
@@ -46,6 +49,7 @@ elif(command[1] == "drop:all"):
 
 # create table
 elif(command[1] == "migrate"):
+    print(f"Migrating table {command[2].lower()}")
     sql = migration.migrate(command[2])
     cursor.execute(sql)
     db.commit()
@@ -77,27 +81,33 @@ elif(command[1] == "migrate:fresh"):
 
 # make new model
 elif(command[1] == "make:model"):
+    print(f"Creating model {command[2].lower()}")
     model.make_model(command[2])
     print(f"Model {command[2].lower()} has been make")
 # end make new model
 
 # make new migration
 elif(command[1] == "make:migration"):
+    print(f"Creating migration {command[2].lower()}")
     migration.make_migration(command[2])
     print(f"Migration {command[2].lower()} has been make")
 # end make new migration
 
 # make new seeder
 elif(command[1] == "make:seeder"):
+    print(f"Creating seeder {command[2].lower()}")
     seeder.make_seeder(command[2])
     print(f"Seeder {command[2].lower()} has been make")
 # end make new seeder
 
 elif(command[1] == "make:msm"):
+    print(f"Creating model {command[2].lower()}")
     model.make_model(command[2])
     print(f"Model {command[2].lower()} has been make")
+    print(f"Creating migration {command[2].lower()}")
     migration.make_migration(command[2])
     print(f"Migration {command[2].lower()} has been make")
+    print(f"Creating seeder {command[2].lower()}")
     seeder.make_seeder(command[2])
     print(f"Seeder {command[2].lower()} has been make")
 
@@ -106,6 +116,21 @@ elif(command[1] == "seed:all"):
     seeder.seed_all()
     print(f"All seeder has been seeded")
 
+elif(command[1] == "db:table"):
+    query = "SELECT * FROM " + command[2]
+    cursor.execute(query)
+    # get field name
+    field_name = [i[0] for i in cursor.description]
+    fetch = cursor.fetchall()
+
+    # print field name
+    for i in field_name:
+        print(i, end="\t")
+    print()
+
+    for i in fetch:
+        print("{}".format(
+            '\t'.join('{}'.format(i[k]) for k in range(len(i)))))
 
 else:
     print("Command not found")
