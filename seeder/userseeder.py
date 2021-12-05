@@ -1,3 +1,4 @@
+from helper.hash import Hash
 from model.user import User
 import bcrypt
 
@@ -9,10 +10,10 @@ class Userseeder:
     def seed():
         User().create({
             'username': 'admin',
-            'password': bcrypt.hashpw(b"admin", bcrypt.gensalt()),
+            'password': Hash.encrypt('admin'),
         })
 
         User().create({
             'username': 'eky',
-            'password': bcrypt.hashpw(b"eksype", bcrypt.gensalt()),
+            'password': Hash.encrypt('eky'),
         })

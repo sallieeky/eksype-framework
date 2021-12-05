@@ -1,13 +1,12 @@
 #!/usr/bin/python
 import sys
-from helper.db import DB
+from helper.hash import Hash
 import migration
 import model
 import seeder
 import config
 import env
 import os
-from helper import tableit
 
 command = sys.argv
 
@@ -147,7 +146,6 @@ elif(command[1] == "db:desc"):
     for i in fetch:
         print("{}".format(
             '\t'.join('{}'.format(i[k]) for k in range(len(i)))))
-
 
 else:
     print("Command not found")
