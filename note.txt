@@ -19,4 +19,5 @@ make:migration migrationname
 make:seeder seedername
 make:msm tablename
 
-db:table nama_table
+db:select nama_table
+db:desc nama_table

@@ -116,21 +116,38 @@ elif(command[1] == "seed:all"):
     seeder.seed_all()
     print(f"All seeder has been seeded")
 
-elif(command[1] == "db:table"):
-    query = "SELECT * FROM " + command[2]
+
+elif(command[1] == "db"):
+    query = "SHOW TABLES"
     cursor.execute(query)
-    # get field name
-    field_name = [i[0] for i in cursor.description]
     fetch = cursor.fetchall()
 
-    # print field name
-    for i in field_name:
-        print(i, end="\t")
-    print()
+    print("\nTable list in database")
+    j = 1
+    for i in fetch:
+        print(f"{j}. {i[0]}")
+        j += 1
 
+elif(command[1] == "db:select"):
+    query = "SELECT * FROM " + command[2]
+    cursor.execute(query)
+    fetch = cursor.fetchall()
+
+    print()
     for i in fetch:
         print("{}".format(
             '\t'.join('{}'.format(i[k]) for k in range(len(i)))))
+
+elif(command[1] == "db:desc"):
+    query = "DESC " + command[2]
+    cursor.execute(query)
+    fetch = cursor.fetchall()
+
+    print()
+    for i in fetch:
+        print("{}".format(
+            '\t'.join('{}'.format(i[k]) for k in range(len(i)))))
+
 
 else:
     print("Command not found")
