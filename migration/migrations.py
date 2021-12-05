@@ -6,9 +6,9 @@ class Migrations(Schema):
         Schema.__init__(self)
 
     def schema(self):
-        self.query += Schema().id()
-        self.query += Schema().varchar("name")
-        self.query += Schema().timestamps()
+        self.query += Schema.id()
+        self.query += Schema.varchar("name")
+        self.query += Schema.timestamps()
         return self.query
 
     def create(self):

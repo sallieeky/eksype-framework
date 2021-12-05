@@ -6,10 +6,10 @@ class User(Schema):
         Schema.__init__(self)
 
     def schema(self):
-        self.query += Schema().id()
-        self.query += Schema().varchar("username")
-        self.query += Schema().varchar("password")
-        self.query += Schema().timestamps()
+        self.query += Schema.id()
+        self.query += Schema.varchar("username")
+        self.query += Schema.varchar("password")
+        self.query += Schema.timestamps()
         return self.query
 
     def create(self):

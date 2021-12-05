@@ -1,4 +1,3 @@
-import bcrypt
 from model.model import Model
 
 

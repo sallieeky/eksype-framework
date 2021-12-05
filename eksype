@@ -1,6 +1,5 @@
 #!/usr/bin/python
 import sys
-from helper.hash import Hash
 import migration
 import model
 import seeder
@@ -100,13 +99,10 @@ elif(command[1] == "make:seeder"):
 # end make new seeder
 
 elif(command[1] == "make:msm"):
-    print(f"Creating model {command[2].lower()}")
     model.make_model(command[2])
     print(f"Model {command[2].lower()} has been make")
-    print(f"Creating migration {command[2].lower()}")
     migration.make_migration(command[2])
     print(f"Migration {command[2].lower()} has been make")
-    print(f"Creating seeder {command[2].lower()}")
     seeder.make_seeder(command[2])
     print(f"Seeder {command[2].lower()} has been make")
 

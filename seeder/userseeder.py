@@ -1,6 +1,5 @@
 from helper.hash import Hash
 from model.user import User
-import bcrypt
 
 
 class Userseeder:
