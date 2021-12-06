@@ -31,7 +31,8 @@ class Welcome(QWidget):
             "QLabel {font-size: 36px; font-weight: bold; color: #04045C; font-family: Arial; }")
 
         self.copyright = QLabel(self)
-        self.copyright.setText('Copyright © 2021 Sallie Mansurina')
+        self.copyright.setText(
+            'Copyright © 2021 Sallie Trixie Zebada Mansurina')
         self.copyright.move(50, 220)
         self.copyright.setStyleSheet(
             "QLabel {font-size: 12px; color: #04045C; font-family: Arial; }")

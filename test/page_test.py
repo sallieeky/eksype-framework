@@ -1,4 +1,5 @@
 from PyQt5.QtCore import *
+from PyQt5.QtGui import QIcon
 from PyQt5.QtWidgets import QSizePolicy, QWidget, QApplication, QPushButton, QLabel, QLineEdit, QGridLayout, QMessageBox, QMainWindow
 import sys
 from model.user import User
@@ -17,6 +18,8 @@ class PageTest(QWidget):
 
         self.setWindowTitle(self.title)
         self.setGeometry(self.left, self.top, self.width, self.height)
+        self.setStyleSheet("background-color: #FFFFFF;")
+        self.setWindowIcon(QIcon("resource/icon.png"))
 
         self.initUI()
         self.show()
