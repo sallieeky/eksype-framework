@@ -27,5 +27,6 @@ db:desc nama_table
 
 test query
 test syntax
+test page
 
 check

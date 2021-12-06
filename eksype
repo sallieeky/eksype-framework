@@ -8,6 +8,7 @@ import config
 import env
 import os
 
+from test.page_test import PageTest
 from test.query_test import QueryTest
 from test.syntax_test import SyntaxTest
 
@@ -169,6 +170,9 @@ elif(command[1] == "test"):
         QueryTest.test_1()
     elif(command[2] == "syntax"):
         SyntaxTest.test_1()
+    elif(command[2] == "page"):
+        print("Executing page test")
+        PageTest().run()
     else:
         print("Command not found")
 
