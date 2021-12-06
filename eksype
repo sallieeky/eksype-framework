@@ -163,6 +163,9 @@ elif(command[1] == "test"):
     else:
         print("Command not found")
 
+elif(command[1] == "check"):
+    os.system("py check.py")
+
 
 else:
     print("Command not found")

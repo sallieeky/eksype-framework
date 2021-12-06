@@ -4,6 +4,7 @@ PyQt5
 bcrypt
 
 Command eksype exists
+
 drop table_name
 drop:all
 
@@ -23,3 +24,8 @@ make:msm tablename
 db
 db:select nama_table
 db:desc nama_table
+
+test query
+test syntax
+
+check
