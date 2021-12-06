@@ -55,3 +55,8 @@ class Model:
         cursor.execute(f"DELETE FROM {self.table_name} WHERE id = {id}")
         db.commit()
         return True
+
+    def truncate(self):
+        cursor.execute(f"TRUNCATE TABLE {self.table_name}")
+        db.commit()
+        return True

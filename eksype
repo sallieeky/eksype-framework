@@ -139,6 +139,15 @@ elif(command[1] == "db:select"):
     query = "SELECT * FROM " + command[2]
     cursor.execute(query)
     fetch = cursor.fetchall()
+    print()
+
+    # get column name from table and print horizontal line
+    query = "SHOW COLUMNS FROM " + command[2]
+    cursor.execute(query)
+    fetch_column = cursor.fetchall()
+    for i in fetch_column:
+        print(f"{i[0]}", end="\t")
+    print()
 
     print()
     for i in fetch:
@@ -164,7 +173,7 @@ elif(command[1] == "test"):
         print("Command not found")
 
 elif(command[1] == "check"):
-    os.system("py check.py")
+    os.system("py check")
 
 
 else:

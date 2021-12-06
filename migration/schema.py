@@ -8,17 +8,18 @@ class Schema:
     def timestamps():
         return "created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP, updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP"
 
-    def varchar(field, length=255, null=False):
-        return f"{field} VARCHAR({length}) {'NOT NULL' if null == False else ''},"
+    def varchar(field, length=255, null=False, unique=False):
+        return f"{field} VARCHAR({length}) {'NOT NULL' if null == False else ''} {'UNIQUE' if unique == True else ''},"
+        # return f"{field} VARCHAR({length}) {'NOT NULL' if null == False else ''},"
 
-    def integer(field, length=20, null=False):
-        return f"{field} INT({length}) {'NOT NULL' if null == False else ''},"
+    def integer(field, length=20, null=False, unique=False):
+        return f"{field} INTEGER({length}) {'NOT NULL' if null == False else ''} {'UNIQUE' if unique == True else ''},"
 
-    def char(field, length=255, null=False):
-        return f"{field} CHAR({length}) {'NOT NULL' if null == False else ''},"
+    def char(field, length=255, null=False, unique=False):
+        return f"{field} CHAR({length}) {'NOT NULL' if null == False else ''} {'UNIQUE' if unique == True else ''},"
 
-    def text(field, null=False):
-        return f"{field} TEXT {'NOT NULL' if null == False else ''},"
+    def text(field, null=False, unique=False):
+        return f"{field} TEXT {'NOT NULL' if null == False else ''} {'UNIQUE' if unique == True else ''},"
 
     def boolean(field, null=False):
         return f"{field} BOOLEAN {'NOT NULL' if null == False else ''},"

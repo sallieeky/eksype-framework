@@ -7,7 +7,7 @@ class User(Schema):
 
     def schema(self):
         self.query += Schema.id()
-        self.query += Schema.varchar("username")
+        self.query += Schema.varchar("username", unique=True)
         self.query += Schema.varchar("password")
         self.query += Schema.timestamps()
         return self.query

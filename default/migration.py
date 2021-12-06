@@ -7,6 +7,7 @@ class ClassName(Schema):
 
     def schema(self):
         self.query += Schema.id()
+        # insert additional schema here
         self.query += Schema.timestamps()
         return self.query
 
