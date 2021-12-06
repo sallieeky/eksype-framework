@@ -8,6 +8,10 @@ import config
 import env
 import os
 
+from test.query_test import QueryTest
+from test.syntax_test import SyntaxTest
+
+
 command = sys.argv
 
 # connect to database
@@ -150,6 +154,15 @@ elif(command[1] == "db:desc"):
     for i in fetch:
         print("{}".format(
             '\t'.join('{}'.format(i[k]) for k in range(len(i)))))
+
+elif(command[1] == "test"):
+    if(command[2] == "query"):
+        QueryTest.test_1()
+    elif(command[2] == "syntax"):
+        SyntaxTest.test_1()
+    else:
+        print("Command not found")
+
 
 else:
     print("Command not found")

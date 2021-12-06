@@ -8,10 +8,10 @@ class DB:
     def __init__(self):
         pass
 
-    def queryMany(self, query):
+    def queryMany(query):
         cursor.execute(query)
         return cursor.fetchall()
 
-    def queryOnly(self, query):
+    def queryOnly(query):
         cursor.execute(query)
         return cursor.fetchone()

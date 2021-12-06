@@ -1,4 +1,4 @@
-﻿# Welcome Eksype Framework
+﻿# Welcome To Eksype Framework
 
 ## Install this library before using
 
