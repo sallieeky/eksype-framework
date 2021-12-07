@@ -1,22 +1,16 @@
 from PyQt5.QtCore import *
-from PyQt5.QtGui import QIcon
-from PyQt5.QtWidgets import QSizePolicy, QWidget, QApplication, QPushButton, QLabel, QLineEdit, QGridLayout, QMessageBox, QMainWindow
+from PyQt5.QtGui import *
+from PyQt5.QtWidgets import *
+from page.hello import Hello
+
+from page.page import Page
 
 
-class Welcome(QWidget):
+class Welcome(Page):
     def __init__(self):
         super().__init__()
-        self.title = 'Welcome App'
-        self.left = 100
-        self.top = 100
-        self.width = 640
-        self.height = 480
 
-        self.setWindowTitle(self.title)
-        self.setGeometry(self.left, self.top, self.width, self.height)
-        self.setWindowIcon(QIcon('resource/icon.png'))
         self.setStyleSheet("QWidget {background-color: #ffffff;}")
-
         self.initUI()
 
     def initUI(self):
@@ -36,3 +30,22 @@ class Welcome(QWidget):
         self.copyright.move(50, 220)
         self.copyright.setStyleSheet(
             "QLabel {font-size: 12px; color: #04045C; font-family: Arial; }")
+
+        self.button = QPushButton('Start', self)
+        self.button.move(50, 300)
+        self.button.setStyleSheet(
+            """QPushButton {font-size: 18px; font-weight: bold; color: #04045C; font-family: Arial; background-color: #F5F5F5; border-radius: 10px; border: 2px solid #04045C; padding: 8px 24px; }
+            QPushButton:hover {background-color: #04045C; color: #F5F5F5; }
+            QPushButton:pressed {background-color: #020202; color: #F5F5F5; }""")
+        self.button.clicked.connect(self.on_click)
+
+        self.notes = QLabel(self)
+        self.notes.setText(
+            'Notes: You can delete this page and create your own page or edit hello.py file.')
+        # move the notes to the bottom of the window
+        self.notes.move(50, self.height - 50)
+        self.notes.setStyleSheet(
+            "QLabel {font-size: 12px; color: #04045C; font-family: Arial; }")
+
+    def on_click(self):
+        self.changePage(Hello())
