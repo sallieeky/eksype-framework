@@ -14,3 +14,6 @@ class Auth(User):
                 return True
             else:
                 return False
+
+        else:
+            return False

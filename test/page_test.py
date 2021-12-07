@@ -30,7 +30,7 @@ class PageTest(QWidget):
         user = User()
         user = user.find(1)
 
-        self.label.setText(user["username"] + "\n" + str(user["created_at"]))
+        self.label.setText(user["email"] + "\n" + str(user["created_at"]))
         self.label.move(70, 180)
         self.label.setStyleSheet("QLabel {font-size: 36px;}")
 
