@@ -11,11 +11,13 @@ class Page(QWidget):
         self.height = 480
         self.icon = 'resource/icon.png'
 
+        # Center the window on the screen #
         self.setWindowTitle(self.title)
         qtRectangle = self.frameGeometry()
         centerPoint = QDesktopWidget().availableGeometry().center()
         qtRectangle.moveCenter(centerPoint)
         self.move(qtRectangle.topLeft())
+        # End of Center the window on the screen #
 
         self.setFixedSize(self.width, self.height)
         self.setWindowIcon(QIcon(self.icon))

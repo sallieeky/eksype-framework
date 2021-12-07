@@ -8,11 +8,11 @@ class Userseeder:
 
     def seed():
         User().create({
-            'username': 'admin',
+            'email': 'admin@eksype.com',
             'password': Hash.encrypt('admin'),
         })
 
         User().create({
-            'username': 'eky',
-            'password': Hash.encrypt('eky'),
+            'email': 'eksype@eksype.com',
+            'password': Hash.encrypt('eksype'),
         })
