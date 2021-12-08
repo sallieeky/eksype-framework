@@ -48,4 +48,4 @@ class Welcome(Page):
             "QLabel {font-size: 12px; color: #04045C; font-family: Arial; }")
 
     def on_click(self):
-        self.changePage(Hello())
+        self.switchPage(Hello())

@@ -22,7 +22,7 @@ class Page(QWidget):
         self.setFixedSize(self.width, self.height)
         self.setWindowIcon(QIcon(self.icon))
 
-    def changePage(self, page):
+    def switchPage(self, page):
         self.close()
         self.page = page
         self.page.show()

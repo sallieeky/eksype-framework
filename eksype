@@ -85,39 +85,60 @@ elif(command[1] == "migrate:fresh"):
 
 # make new model
 elif(command[1] == "make:model"):
-    print(f"Creating model {command[2].lower()}")
-    model.make_model(command[2])
-    print(f"Model {command[2].lower()} has been make")
+    if (os.path.isfile("model/" + command[2].lower() + ".py")):
+        print("Model already exists")
+    else:
+        print(f"Creating model {command[2].lower()}")
+        model.make_model(command[2])
+        print(f"Model {command[2].lower()} has been make")
 # end make new model
 
 # make new migration
 elif(command[1] == "make:migration"):
-    print(f"Creating migration {command[2].lower()}")
-    migration.make_migration(command[2])
-    print(f"Migration {command[2].lower()} has been make")
+    if (os.path.isfile("migration/" + command[2].lower() + ".py")):
+        print("Migration already exists")
+    else:
+        print(f"Creating migration {command[2].lower()}")
+        migration.make_migration(command[2])
+        print(f"Migration {command[2].lower()} has been make")
 # end make new migration
 
 # make new seeder
 elif(command[1] == "make:seeder"):
-    print(f"Creating seeder {command[2].lower()}")
-    seeder.make_seeder(command[2])
-    print(f"Seeder {command[2].lower()} has been make")
+    if (os.path.isfile("seeder/" + command[2].lower() + ".py") or os.path.isfile("seeder/" + command[2].lower() + "seeder.py")):
+        print("Seeder already exists")
+    else:
+        print(f"Creating seeder {command[2].lower()}")
+        seeder.make_seeder(command[2])
+        print(f"Seeder {command[2].lower()} has been make")
 # end make new seeder
 
-# make new seeder
+# make new page
 elif(command[1] == "make:page"):
-    print(f"Creating page {command[2].lower()}")
-    page.make_page(command[2])
-    print(f"Page {command[2].lower()} has been make")
-# end make new seeder
+    if (os.path.isfile("page/" + command[2].lower() + ".py")):
+        print("Page already exists")
+    else:
+        print(f"Creating page {command[2].lower()}")
+        page.make_page(command[2])
+        print(f"Page {command[2].lower()} has been make")
+# end make new page
 
 elif(command[1] == "make:msm"):
-    model.make_model(command[2])
-    print(f"Model {command[2].lower()} has been make")
-    migration.make_migration(command[2])
-    print(f"Migration {command[2].lower()} has been make")
-    seeder.make_seeder(command[2])
-    print(f"Seeder {command[2].lower()} has been make")
+    if (os.path.isfile("model/" + command[2].lower() + ".py")):
+        print("Model already exists")
+    else:
+        model.make_model(command[2])
+        print(f"Model {command[2].lower()} has been make")
+    if (os.path.isfile("migration/" + command[2].lower() + ".py")):
+        print("Migration already exists")
+    else:
+        migration.make_migration(command[2])
+        print(f"Migration {command[2].lower()} has been make")
+    if (os.path.isfile("seeder/" + command[2].lower() + ".py") or os.path.isfile("seeder/" + command[2].lower() + "seeder.py")):
+        print("Seeder already exists")
+    else:
+        seeder.make_seeder(command[2])
+        print(f"Seeder {command[2].lower()} has been make")
 
 
 elif(command[1] == "seed:all"):
